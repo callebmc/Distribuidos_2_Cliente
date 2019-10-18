@@ -17,10 +17,11 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     private InterfaceServ teste;
     public CliImpl (InterfaceServ servidor) throws RemoteException{
         teste = servidor;
+        teste.chamar("Oi", this);
     }
     @Override
     public void echo(String mensagem) throws RemoteException {
         System.out.println(mensagem);
-        this.teste.chamar("Oi", this);
+       
     }    
 }

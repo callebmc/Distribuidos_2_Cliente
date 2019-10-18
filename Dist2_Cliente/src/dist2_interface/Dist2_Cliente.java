@@ -19,11 +19,11 @@ public class Dist2_Cliente {
     /**
      * @param args the command line arguments
      */
+
     public static void main(String[] args) throws RemoteException, NotBoundException {
-        Registry referenciaServicoNomes = LocateRegistry.getRegistry(1099);
-        CliImpl cliImpl = (CliImpl) referenciaServicoNomes.lookup("Servidor");
-        
-        CliImpl novo = new CliImpl();
+        Registry reg = LocateRegistry.getRegistry(1099);
+        InterfaceServ servidor = (InterfaceServ) reg.lookup("Hello World");
+        CliImpl cliente = new CliImpl(servidor);
     }
     
 }
