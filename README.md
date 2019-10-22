@@ -1,4 +1,4 @@
-Trabalho 1 de Sistemas Distribuidos
+Trabalho 2 de Sistemas Distribuidos
 Disciplina: Sistemas Distribuídos
 
 Professora: Ana Cristina Barreiras Kochem Vendramin
