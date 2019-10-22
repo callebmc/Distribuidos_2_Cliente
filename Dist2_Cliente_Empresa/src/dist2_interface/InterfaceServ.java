@@ -13,5 +13,6 @@ import java.rmi.RemoteException;
  * @author a1609556
  */
 public interface InterfaceServ extends Remote{
-    void chamar(String mensagem, InterfaceCli interfaceCli) throws RemoteException;    
+    void chamar(String mensagem, InterfaceCli interfaceCli) throws RemoteException;
+    public boolean inserirAluno(Aluno a) throws RemoteException;    
 }
