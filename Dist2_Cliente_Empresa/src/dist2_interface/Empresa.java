@@ -5,6 +5,8 @@
  */
 package dist2_interface;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Calleb Malinoski
@@ -16,6 +18,7 @@ public class Empresa {
     private String areaVaga;
     private String cargaHorariaVaga;
     private float salarioVaga;
+    private ArrayList<Aluno> interessados;
     public InterfaceCli ref;
 
     public Empresa(String nomeEmpresa, String emailEmpresa, String areaVaga, String cargaHorarioVaga, float salarioVaga, InterfaceCli ref) {
@@ -45,5 +48,9 @@ public class Empresa {
 
     public float getSalarioVaga() {
         return salarioVaga;
+    }
+    
+    public ArrayList<Aluno> getInteressados() {
+        return interessados;
     }
 }
