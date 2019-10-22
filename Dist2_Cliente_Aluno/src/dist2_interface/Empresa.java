@@ -53,4 +53,8 @@ public class Empresa {
     public ArrayList<Aluno> getInteressados() {
         return interessados;
     }
+    
+    public void addInteressado(Aluno a){
+        this.interessados.add(a);
+    }
 }
