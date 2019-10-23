@@ -15,9 +15,7 @@ import dist2_interface.Curriculo;
  *
  * @author a1609556
  */
-public interface InterfaceServ extends Remote{
-    void chamar(String mensagem, InterfaceCli interfaceCli) throws RemoteException;
-    
+public interface InterfaceServ extends Remote{    
     /*
     Método para consultar curriculos
     */
@@ -34,6 +32,15 @@ public interface InterfaceServ extends Remote{
     public void atualizarCurriculo(int indice, String nome, String contato, String area, int CH, float salario) throws RemoteException;
     
     /*
+    Método que registra interesse em Vagas
+    */
+    public void registraInteresseVagas(InterfaceCli cli, String areaInteresse) throws RemoteException;    
+    
+    /********************************/
+    /********************************/
+    /********************************/
+    
+    /*
     Método que cria uma nova vaga de estágio
     */
     public void criarVaga(String nomeEmpresa, String emailEmpresa, String areaVaga, String cargaHorariaVaga, float salarioVaga, InterfaceCli cliente) throws RemoteException;
@@ -47,4 +54,9 @@ public interface InterfaceServ extends Remote{
     Método que atualiza vaga de estágio
     */
     public void atualizarVaga(int indice,String nomeEmpresa, String emailEmpresa, String areaVaga, String cargaHorariaVaga, float salarioVaga, InterfaceCli cliente) throws RemoteException;
+    
+    /*
+    Método que registra interesse em Curriculos
+    */
+    public void registraInteresseCurriculos(InterfaceCli cli, String areaInteresse) throws RemoteException;    
 }

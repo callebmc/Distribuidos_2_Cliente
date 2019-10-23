@@ -41,12 +41,13 @@ public class Dist2_Cliente_Empresa {
         ArrayList<Empresa> empresasFiltered = new ArrayList();
         ArrayList<Curriculo> curriculoFiltered = new ArrayList();
 
-        while (opt != 5) {
+        while (opt != 9) {
             System.out.println("Escolha uma opção abaixo");
             System.out.println("1 - Cadastrar Vaga");
             System.out.println("2 - Consultar Vagas");
             System.out.println("3 - Consultar Currículos");
             System.out.println("4 - Atualiar Vagas");
+            System.out.println("5 - Registrar Interesse");
             opt = Integer.parseInt(leia.nextLine());
 
             //CADASTRO DE VAGAS
@@ -144,6 +145,16 @@ public class Dist2_Cliente_Empresa {
                 System.out.println("Salario: ");
                 salario = Float.parseFloat(leia.nextLine());
                 servidor.atualizarVaga(opt_sub - 1, nomeEmpresa, emailEmpresa, areaVaga, cargaHorariaVaga, salario, cliente);
+            }
+            
+            //REGISTRA INTERESSE
+            if(opt == 5){
+                System.out.println("");
+                System.out.println("Digite a área de interesse de curriculos: ");
+                areaVaga = leia.nextLine();
+                System.out.println("Registrando Interesse em qualquer curriculo da área " + areaVaga );
+                servidor.registraInteresseVagas(cliente, areaVaga);
+                System.out.println("Registro de interesse feito com sucesso");
             }
 
             cont = 1;

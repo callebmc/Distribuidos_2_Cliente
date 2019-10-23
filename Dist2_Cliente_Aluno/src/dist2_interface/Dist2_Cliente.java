@@ -47,6 +47,7 @@ public class Dist2_Cliente {
             System.out.println("1 - Cadastre seu Currículo.");
             System.out.println("2 - Consulte as Vagas Disponíveis.");
             System.out.println("3 - Atualizar Curriculo");
+            System.out.println("4 - Registrar Interesse");
 
             opt = Integer.parseInt(leia.nextLine());
 
@@ -118,6 +119,16 @@ public class Dist2_Cliente {
                 System.out.println("Salario: ");
                 salario = Float.parseFloat(leia.nextLine());
                 servidor.atualizarCurriculo(opt_sub - 1, nome, contato, area, opt, salario);
+            }
+            
+            //REGISTRA INTERESSE
+            if(opt == 4){
+                System.out.println("");
+                System.out.println("Digite a área de interesse: ");
+                area = leia.nextLine();
+                System.out.println("Registrando Interesse em qualquer vaga da área " + area );
+                servidor.registraInteresseVagas(cli, area);
+                System.out.println("Registro de interesse feito com sucesso");
             }
 
             cont = 1;
