@@ -24,4 +24,11 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     public void echo(String mensagem) throws RemoteException {
         System.out.println(mensagem);  
     }
+
+    @Override
+    public void notificarVaga(Empresa vaga) throws RemoteException {
+        System.out.println("Nova vaga disponível. Empresa: " + vaga.getNomeEmpresa());
+        System.out.println("Area de Interesse: " + vaga.getAreaVaga());
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
