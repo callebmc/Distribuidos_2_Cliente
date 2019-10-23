@@ -1,13 +1,15 @@
-Trabalho 2 de Sistemas Distribuidos
-Disciplina: Sistemas Distribuídos
+# Trabalho 2 de Sistemas Distribuidos 
+
+Disciplina: Sistemas DistribuÃ­dos
 
 Professora: Ana Cristina Barreiras Kochem Vendramin
 
 Ano: 2019/2
 
-Protocolo de Consenso, Comunicação em Grupo e Segurança.
+### Protocolo de Consenso, ComunicaÃ§Ã£o em Grupo e SeguranÃ§a.
+
 Phase King
 
-Autores
-Ana Yanaze
-Calleb Malinoski
+### Autores
++ Ana Yanaze
++ Calleb Malinoski
