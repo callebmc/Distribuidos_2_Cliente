@@ -24,7 +24,7 @@ public class Dist2_Cliente_Empresa {
      * @param args the command line arguments
      */
     public static InterfaceServ servidor;
-    public static  CliImpl cliente;
+    public static CliImpl cliente;
 
     public static void main(String[] args) throws RemoteException, NotBoundException {
         Registry reg = LocateRegistry.getRegistry(1099);
@@ -37,10 +37,11 @@ public class Dist2_Cliente_Empresa {
         String areaFiltro;
         float salarioFiltro;
         ArrayList<Empresa> empresasFiltered = new ArrayList();
-        
+
         while (opt != 5) {
             System.out.println("Escolha uma opção abaixo");
             System.out.println("1 - Cadastrar Vaga");
+            System.out.println("1 - Consultar Vagas");
             opt = Integer.parseInt(leia.nextLine());
 
             if (opt == 1) {
@@ -61,24 +62,24 @@ public class Dist2_Cliente_Empresa {
                 salario = Float.parseFloat(leia.nextLine());
                 servidor.criarVaga(nomeEmpresa, emailEmpresa, areaVaga, cargaHorariaVaga, salario, cliente);
             }
-            if (opt == 2){
+            if (opt == 2) {
                 clrscr();
                 System.out.println("Vagas disponíveis, escolha uma opção");
-                System.out.println("1 - Todas as vagas");
-                System.out.println("2 - Vagas filtradas");
+                System.out.println("1 - Vagas filtradas");
+                System.out.println("2 - Todas as vagas");
                 System.out.println("Opção: ");
                 opt_sub = Integer.parseInt(leia.nextLine());
-                if(opt_sub == 2){
+                if (opt_sub == 2) {
                     empresasFiltered = servidor.consultar(opt_sub, "", 0);
                 }
-                if(opt_sub == 1){
+                if (opt_sub == 1) {
                     System.out.println("Área de interesse: ");
                     areaFiltro = leia.nextLine();
                     System.out.println("Salário mínimo: ");
                     salarioFiltro = Float.parseFloat(leia.nextLine());
                     empresasFiltered = servidor.consultar(opt_sub, areaFiltro, salarioFiltro);
                 }
-                for(Empresa empresa : empresasFiltered){
+                for (Empresa empresa : empresasFiltered) {
                     System.out.println("Vaga da empresa: " + empresa.getNomeEmpresa());
                     System.out.println("Area: " + empresa.getAreaVaga());
                     System.out.println("Salario: " + empresa.getSalarioVaga());
