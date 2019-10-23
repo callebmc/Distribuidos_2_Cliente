@@ -31,10 +31,6 @@ public class Dist2_Cliente {
         Registry reg = LocateRegistry.getRegistry(1099);
         InterfaceServ servidor = (InterfaceServ) reg.lookup("Hello World");
         CliImpl cliente = new CliImpl(servidor);
-        //curriculo.setCurriculo("nome", "contato", "area", 12, 123);
-        //servidor.inserirCurriculo("nome", "contato", "area", 12, 123);
-        //abreMenu();
-        clrscr();
         Scanner leia = new Scanner(System.in);
         int opt = 1, opt_sub = 0, cont = 1;
         String areaFiltro;
@@ -54,8 +50,9 @@ public class Dist2_Cliente {
 
             opt = Integer.parseInt(leia.nextLine());
 
+            //CADASTRA CURRICULO
             if (opt == 1) {
-                clrscr();
+                System.out.println("");
                 Scanner leia2 = new Scanner(System.in);
                 System.out.println("****Cadastro de Currículo*****");
                 System.out.println("Insira o seu nome: ");
@@ -71,8 +68,9 @@ public class Dist2_Cliente {
                 servidor.inserirCurriculo(nome, contato, area, cargaHoraria, salario, cliente);
             }
 
+            //CONSULTA VAGAS DISPONÍVEIS
             if (opt == 2) {
-                clrscr();
+                System.out.println("");
                 System.out.println("****Mostrando vagas disponíveis****");
                 System.out.println("Vagas disponíveis, escolha uma opção");
                 System.out.println("1 - Vagas filtradas");
@@ -96,6 +94,7 @@ public class Dist2_Cliente {
                 }
             }
 
+            //ATUALIZA CURRICULO
             if (opt == 3) {
                 curriculoFiltered = servidor.consultarCurriculos(" ");
                 System.out.println("Escolha o número do curriculo para editar");
@@ -124,26 +123,5 @@ public class Dist2_Cliente {
             cont = 1;
 
         }
-
     }
-
-    public static void cadastroMenu() {
-        clrscr();
-        Scanner leia = new Scanner(System.in);
-        System.out.println("Olá");
-
-    }
-
-    public static void clrscr() {
-        //Clears Screen in java
-        try {
-            if (System.getProperty("os.name").contains("Windows")) {
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } else {
-                Runtime.getRuntime().exec("clear");
-            }
-        } catch (IOException | InterruptedException ex) {
-        }
-    }
-
 }

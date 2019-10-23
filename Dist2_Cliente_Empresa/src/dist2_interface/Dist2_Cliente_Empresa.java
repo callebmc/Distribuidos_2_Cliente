@@ -49,6 +49,7 @@ public class Dist2_Cliente_Empresa {
             System.out.println("4 - Atualiar Vagas");
             opt = Integer.parseInt(leia.nextLine());
 
+            //CADASTRO DE VAGAS
             if (opt == 1) {
                 System.out.println("");
                 Scanner leia2 = new Scanner(System.in);
@@ -65,6 +66,8 @@ public class Dist2_Cliente_Empresa {
                 salario = Float.parseFloat(leia.nextLine());
                 servidor.criarVaga(nomeEmpresa, emailEmpresa, areaVaga, cargaHorariaVaga, salario, cliente);
             }
+            
+            //CONSULTAR VAGAS
             if (opt == 2) {
                 System.out.println("");
                 System.out.println("Vagas disponíveis, escolha uma opção");
@@ -92,6 +95,7 @@ public class Dist2_Cliente_Empresa {
                 }
             }
 
+            //CONSULTAR CURRICULOS CADASTRADOS
             if (opt == 3) {
                 System.out.println("");
                 System.out.println("********* Currículos Cadastrados ***********");
@@ -118,6 +122,7 @@ public class Dist2_Cliente_Empresa {
                 }
             }
 
+            //ATUALIZAR UMA VAGA
             if (opt == 4) {
                 empresasFiltered = servidor.consultar(2, "", 0);
                 System.out.println("Escolha o número da vaga para editar");
