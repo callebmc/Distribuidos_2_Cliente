@@ -53,9 +53,12 @@ public class Dist2_Cliente_Empresa {
                 cargaHorariaVaga = leia.nextLine();
                 System.out.println("Salario: ");
                 salario = Float.parseFloat(leia.nextLine());
-                System.out.println("consegui 1");
                 servidor.criarVaga(nomeEmpresa, emailEmpresa, areaVaga, cargaHorariaVaga, salario, cliente);
-                System.out.println("consegui");
+            }
+            if (opt == 2){
+                clrscr();
+                System.out.println("Vagas disponíveis");
+            
             }
         }
     }
