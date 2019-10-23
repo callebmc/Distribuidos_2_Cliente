@@ -9,6 +9,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+import dist2_interface.Curriculo;
 
 /**
  *
@@ -16,9 +17,34 @@ import java.util.List;
  */
 public interface InterfaceServ extends Remote{
     void chamar(String mensagem, InterfaceCli interfaceCli) throws RemoteException;
-    public boolean inserirAluno(Aluno a) throws RemoteException;    
-    public void criarVaga(String nomeEmpresa, String emailEmpresa, String areaVaga, String cargaHorariaVaga, float salarioVaga, InterfaceCli cliente) throws RemoteException;
-    public ArrayList<Empresa> consultar(int filtro, String area, float salario) throws RemoteException ;
+    
+    /*
+    Método para consultar curriculos
+    */
     public ArrayList<Curriculo> consultarCurriculos(String area) throws RemoteException ;
-
+    
+    /*
+    Método que cria um novo currículo
+    */
+    public boolean inserirCurriculo(String a, String b, String e, int c, float d, InterfaceCli cli)throws RemoteException;
+    
+    /*
+    Método que atualiza curriculo
+    */
+    public void atualizarCurriculo(int indice, String nome, String contato, String area, int CH, float salario) throws RemoteException;
+    
+    /*
+    Método que cria uma nova vaga de estágio
+    */
+    public void criarVaga(String nomeEmpresa, String emailEmpresa, String areaVaga, String cargaHorariaVaga, float salarioVaga, InterfaceCli cliente) throws RemoteException;
+    
+    /*
+    Método que consulta vagas de estágio
+    */
+    public ArrayList<Empresa> consultar(int filtro, String area, float salario) throws RemoteException ;
+    
+    /*
+    Método que atualiza vaga de estágio
+    */
+    public void atualizarVaga(int indice,String nomeEmpresa, String emailEmpresa, String areaVaga, String cargaHorariaVaga, float salarioVaga, InterfaceCli cliente) throws RemoteException;
 }

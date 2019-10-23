@@ -31,9 +31,11 @@ public class Dist2_Cliente_Empresa {
         InterfaceServ servidor = (InterfaceServ) reg.lookup("Hello World");
         CliImpl cliente = new CliImpl(servidor);
         System.out.println("Bem vindo ao Portal do Empresa de Estágio");
+        String nomeEmpresa, emailEmpresa, areaVaga, cargaHorariaVaga;
+        float salario;
 
         Scanner leia = new Scanner(System.in);
-        int opt = 1, opt_sub = 0;
+        int opt = 1, opt_sub = 0, cont=1;
         String areaFiltro;
         float salarioFiltro;
         ArrayList<Empresa> empresasFiltered = new ArrayList();
@@ -44,13 +46,12 @@ public class Dist2_Cliente_Empresa {
             System.out.println("1 - Cadastrar Vaga");
             System.out.println("2 - Consultar Vagas");
             System.out.println("3 - Consultar Currículos");
+            System.out.println("4 - Atualiar Vagas");
             opt = Integer.parseInt(leia.nextLine());
 
             if (opt == 1) {
-                clrscr();
+                System.out.println("");
                 Scanner leia2 = new Scanner(System.in);
-                String nomeEmpresa, emailEmpresa, areaVaga, cargaHorariaVaga;
-                float salario;
                 System.out.println("Cadastro de Vaga");
                 System.out.println("Insira o nome da empresa: ");
                 nomeEmpresa = leia.nextLine();
@@ -65,7 +66,7 @@ public class Dist2_Cliente_Empresa {
                 servidor.criarVaga(nomeEmpresa, emailEmpresa, areaVaga, cargaHorariaVaga, salario, cliente);
             }
             if (opt == 2) {
-                clrscr();
+                System.out.println("");
                 System.out.println("Vagas disponíveis, escolha uma opção");
                 System.out.println("1 - Vagas filtradas");
                 System.out.println("2 - Todas as vagas");
@@ -75,6 +76,7 @@ public class Dist2_Cliente_Empresa {
                     empresasFiltered = servidor.consultar(opt_sub, "", 0);
                 }
                 if (opt_sub == 1) {
+                    System.out.println("");
                     System.out.println("Área de interesse: ");
                     areaFiltro = leia.nextLine();
                     System.out.println("Salário mínimo: ");
@@ -82,51 +84,64 @@ public class Dist2_Cliente_Empresa {
                     empresasFiltered = servidor.consultar(opt_sub, areaFiltro, salarioFiltro);
                 }
                 for (Empresa empresa : empresasFiltered) {
+                    System.out.println("");
                     System.out.println("Vaga da empresa: " + empresa.getNomeEmpresa());
                     System.out.println("Area: " + empresa.getAreaVaga());
                     System.out.println("Salario: " + empresa.getSalarioVaga());
+                    System.out.println("");
                 }
             }
-            
-            if (opt == 3){
-                clrscr();
+
+            if (opt == 3) {
+                System.out.println("");
                 System.out.println("********* Currículos Cadastrados ***********");
                 System.out.println("1 - Filtrar por área de interesse");
                 System.out.println("2 - Todas as vagas");
                 System.out.println("Opção: ");
                 opt_sub = Integer.parseInt(leia.nextLine());
                 if (opt_sub == 2) {
-               
+
                     curriculoFiltered = servidor.consultarCurriculos(" ");
-                }
-                
-                else {
+                } else {
                     System.out.println("Área de interesse: ");
                     String area_curriculo = leia.nextLine();
                     curriculoFiltered = servidor.consultarCurriculos(area_curriculo);
                 }
-                
+
                 for (Curriculo curriculo : curriculoFiltered) {
+                    System.out.println("");
                     System.out.println("Vaga da empresa: " + curriculo.getNome());
                     System.out.println("Area: " + curriculo.getArea());
                     System.out.println("Disponibilidade: " + curriculo.getCH() + " horas.");
                     System.out.println("Salario pretendido: " + curriculo.getSalario());
+                    System.out.println("");
                 }
-                
             }
+
+            if (opt == 4) {
+                empresasFiltered = servidor.consultar(2, "", 0);
+                System.out.println("Escolha o número da vaga para editar");
+                for (Empresa empresa : empresasFiltered) {
+                    System.out.println("");
+                    System.out.println("Vaga Número: " + cont++);
+                    System.out.println("Vaga da empresa: " + empresa.getNomeEmpresa());
+                    System.out.println("");
+                }
+                opt_sub = Integer.parseInt(leia.nextLine());
+                System.out.println("Insira o novo nome da empresa: ");
+                nomeEmpresa = leia.nextLine();
+                System.out.println("Email: ");
+                emailEmpresa = leia.nextLine();
+                System.out.println("Área da vaga: ");
+                areaVaga = leia.nextLine();
+                System.out.println("Carga Horaria Total: ");
+                cargaHorariaVaga = leia.nextLine();
+                System.out.println("Salario: ");
+                salario = Float.parseFloat(leia.nextLine());
+                servidor.atualizarVaga(opt_sub - 1, nomeEmpresa, emailEmpresa, areaVaga, cargaHorariaVaga, salario, cliente);
+            }
+
+            cont = 1;
         }
     }
-
-    public static void clrscr() {
-        //Clears Screen in java
-        try {
-            if (System.getProperty("os.name").contains("Windows")) {
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } else {
-                Runtime.getRuntime().exec("clear");
-            }
-        } catch (IOException | InterruptedException ex) {
-        }
-    }
-
 }

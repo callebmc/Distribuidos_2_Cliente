@@ -19,7 +19,6 @@ public class Empresa implements Serializable {
     private String areaVaga;
     private String cargaHorariaVaga;
     private float salarioVaga;
-    private ArrayList<Aluno> interessados;
     public InterfaceCli ref;
 
     public Empresa(String nomeEmpresa, String emailEmpresa, String areaVaga, String cargaHorarioVaga, float salarioVaga, InterfaceCli ref) {
@@ -50,12 +49,24 @@ public class Empresa implements Serializable {
     public float getSalarioVaga() {
         return salarioVaga;
     }
-    
-    public ArrayList<Aluno> getInteressados() {
-        return interessados;
+        
+    public void setNomeEmpresa(String n){
+        this.nomeEmpresa = n;
     }
     
-    public void addInteressado(Aluno a){
-        this.interessados.add(a);
+    public void setEmailEmpresa(String e){
+        this.emailEmpresa = e;
+    }
+    
+    public void setAreaVaga(String a){
+        this.areaVaga = a;
+    }
+    
+    public void setCargaHoraria(String c){
+        this.cargaHorariaVaga = c;
+    }
+    
+    public void setSalarioVaga(float s){
+        this.salarioVaga = s;
     }
 }

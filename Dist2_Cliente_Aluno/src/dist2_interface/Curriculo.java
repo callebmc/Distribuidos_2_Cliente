@@ -19,9 +19,15 @@ public class Curriculo implements Serializable {
     private String contato;
     private String area;
     private int carga_horaria;
-    private double salario_pretendido;
+    private float salario_pretendido;
     
-    public Curriculo() {}
+    public Curriculo(String nome, String contato, String area, int CH, float salario) {
+        this.nome = nome;
+        this.contato = contato;
+        this.area = area;
+        this.carga_horaria = CH;
+        this.salario_pretendido = salario;
+    }
     
     public String getNome() {
         return nome;
@@ -44,16 +50,11 @@ public class Curriculo implements Serializable {
         return salario_pretendido;
     }
     
-    public Curriculo setCurriculo(String nome, String contato, String area, int CH, float salario){
+    public void setCurriculo(String nome, String contato, String area, int CH, float salario){
         this.nome = nome;
         this.contato = contato;
         this.area = area;
         this.carga_horaria = CH;
         this.salario_pretendido = salario;
-        System.out.print(salario);
-        return this;
     }
-    
-    
-    
 }

@@ -14,15 +14,16 @@ import java.util.Scanner;
 import dist2_interface.Curriculo;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author a1609556
  */
 public class Dist2_Cliente {
+
     public static InterfaceServ servidor;
-    public static Curriculo curriculo = new Curriculo ();
+    //public static Curriculo curriculo = new Curriculo();
     public static InterfaceCli cli;
+
     /**
      * @param args the command line arguments
      */
@@ -35,28 +36,27 @@ public class Dist2_Cliente {
         //abreMenu();
         clrscr();
         Scanner leia = new Scanner(System.in);
-        int opt = 1, opt_sub = 0;
+        int opt = 1, opt_sub = 0, cont = 1;
         String areaFiltro;
         float salarioFiltro;
         ArrayList<Empresa> empresasFiltered = new ArrayList();
+        ArrayList<Curriculo> curriculoFiltered = new ArrayList();
+        String nome, contato, area;
+        int cargaHoraria;
+        float salario;
 
-        
-        
-        while (opt != 5){
+        while (opt != 5) {
             System.out.println("Bem-vindo a Agência de Estágio - CLI Aluno ");
             System.out.println("\nDigite a opção desejada:");
             System.out.println("1 - Cadastre seu Currículo.");
             System.out.println("2 - Consulte as Vagas Disponíveis.");
-            System.out.println("3 - Notificações");
-            
+            System.out.println("3 - Atualizar Curriculo");
+
             opt = Integer.parseInt(leia.nextLine());
-            
+
             if (opt == 1) {
                 clrscr();
                 Scanner leia2 = new Scanner(System.in);
-                String nome, contato, area;
-                int cargaHoraria;
-                float salario;
                 System.out.println("****Cadastro de Currículo*****");
                 System.out.println("Insira o seu nome: ");
                 nome = leia.nextLine();
@@ -70,8 +70,8 @@ public class Dist2_Cliente {
                 salario = Float.parseFloat(leia.nextLine());
                 servidor.inserirCurriculo(nome, contato, area, cargaHoraria, salario, cliente);
             }
-            
-            if (opt == 2){
+
+            if (opt == 2) {
                 clrscr();
                 System.out.println("****Mostrando vagas disponíveis****");
                 System.out.println("Vagas disponíveis, escolha uma opção");
@@ -94,20 +94,44 @@ public class Dist2_Cliente {
                     System.out.println("Area: " + empresa.getAreaVaga());
                     System.out.println("Salario: " + empresa.getSalarioVaga());
                 }
-                
             }
-            
-        }
-        
-    }
 
-   
+            if (opt == 3) {
+                curriculoFiltered = servidor.consultarCurriculos(" ");
+                System.out.println("Escolha o número do curriculo para editar");
+                for (Curriculo curriculo : curriculoFiltered) {
+                    System.out.println("");
+                    System.out.println("Curriculo Número: " + cont++);
+                    System.out.println("Nome do Aluno: " + curriculo.getNome());
+                    System.lineSeparator();
+                }
+
+                System.out.print("Opção: ");
+                opt_sub = Integer.parseInt(leia.nextLine());
+                System.out.println("Insira o novo nome: ");
+                nome = leia.nextLine();
+                System.out.println("E-mail: ");
+                contato = leia.nextLine();
+                System.out.println("Área de Interesse: ");
+                area = leia.nextLine();
+                System.out.println("Carga Horaria Disponível, em número de horas: ");
+                cargaHoraria = Integer.parseInt(leia.nextLine());
+                System.out.println("Salario: ");
+                salario = Float.parseFloat(leia.nextLine());
+                servidor.atualizarCurriculo(opt_sub - 1, nome, contato, area, opt, salario);
+            }
+
+            cont = 1;
+
+        }
+
+    }
 
     public static void cadastroMenu() {
         clrscr();
         Scanner leia = new Scanner(System.in);
         System.out.println("Olá");
-        
+
     }
 
     public static void clrscr() {

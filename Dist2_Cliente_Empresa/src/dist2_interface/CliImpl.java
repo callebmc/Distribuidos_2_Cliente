@@ -15,25 +15,28 @@ import java.rmi.server.UnicastRemoteObject;
 public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
 
     private InterfaceServ teste;
-    public CliImpl (InterfaceServ servidor) throws RemoteException{
+
+    public CliImpl(InterfaceServ servidor) throws RemoteException {
         teste = servidor;
         teste.chamar("Enviando Mensagem", this);
     }
+
     @Override
     public void echo(String mensagem) throws RemoteException {
         System.out.println(mensagem);
-       
-    } 
-        @Override
+
+    }
+
+    @Override
     public void notificarVaga(Empresa vaga) throws RemoteException {
         System.out.println("Nova vaga disponível. Empresa: " + vaga.getNomeEmpresa());
         System.out.println("Area de Interesse: " + vaga.getAreaVaga());
     }
-    
+
     @Override
-    public void notificarCurriculos(String msg, String titulo) throws RemoteException{
+    public void notificarCurriculos(String msg, String titulo) throws RemoteException {
         System.out.println(titulo);
         System.out.println(msg);
     }
-    
+
 }

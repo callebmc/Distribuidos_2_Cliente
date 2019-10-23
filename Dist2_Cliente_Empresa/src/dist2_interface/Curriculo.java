@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package dist2_interface;
-
 import java.io.Serializable;
 
 /**
@@ -58,8 +57,4 @@ public class Curriculo implements Serializable {
         this.carga_horaria = CH;
         this.salario_pretendido = salario;
     }
-    
-    
-    
 }
-

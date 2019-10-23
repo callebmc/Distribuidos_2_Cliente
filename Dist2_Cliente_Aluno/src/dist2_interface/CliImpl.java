@@ -15,14 +15,15 @@ import java.rmi.server.UnicastRemoteObject;
 public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
 
     private InterfaceServ teste;
-    public CliImpl (InterfaceServ servidor) throws RemoteException{
+
+    public CliImpl(InterfaceServ servidor) throws RemoteException {
         teste = servidor;
         teste.chamar("Oi", this);
     }
-    
+
     @Override
     public void echo(String mensagem) throws RemoteException {
-        System.out.println(mensagem);  
+        System.out.println(mensagem);
     }
 
     @Override
@@ -31,9 +32,9 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
         System.out.println("Area de Interesse: " + vaga.getAreaVaga());
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public void notificarVagas(String msg, String titulo) throws RemoteException{
+    public void notificarVagas(String msg, String titulo) throws RemoteException {
         System.out.println(titulo);
         System.out.println(msg);
     }
