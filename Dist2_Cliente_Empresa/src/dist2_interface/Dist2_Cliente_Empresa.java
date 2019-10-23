@@ -10,6 +10,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -31,7 +33,11 @@ public class Dist2_Cliente_Empresa {
         System.out.println("Bem vindo ao Portal do Empresa de Estágio");
 
         Scanner leia = new Scanner(System.in);
-        int opt = 1;
+        int opt = 1, opt_sub = 0;
+        String areaFiltro;
+        float salarioFiltro;
+        ArrayList<Empresa> empresasFiltered = new ArrayList();
+        
         while (opt != 5) {
             System.out.println("Escolha uma opção abaixo");
             System.out.println("1 - Cadastrar Vaga");
@@ -57,8 +63,26 @@ public class Dist2_Cliente_Empresa {
             }
             if (opt == 2){
                 clrscr();
-                System.out.println("Vagas disponíveis");
-            
+                System.out.println("Vagas disponíveis, escolha uma opção");
+                System.out.println("1 - Todas as vagas");
+                System.out.println("2 - Vagas filtradas");
+                System.out.println("Opção: ");
+                opt_sub = Integer.parseInt(leia.nextLine());
+                if(opt_sub == 2){
+                    empresasFiltered = servidor.consultar(opt_sub, "", 0);
+                }
+                if(opt_sub == 1){
+                    System.out.println("Área de interesse: ");
+                    areaFiltro = leia.nextLine();
+                    System.out.println("Salário mínimo: ");
+                    salarioFiltro = Float.parseFloat(leia.nextLine());
+                    empresasFiltered = servidor.consultar(opt_sub, areaFiltro, salarioFiltro);
+                }
+                for(Empresa empresa : empresasFiltered){
+                    System.out.println("Vaga da empresa: " + empresa.getNomeEmpresa());
+                    System.out.println("Area: " + empresa.getAreaVaga());
+                    System.out.println("Salario: " + empresa.getSalarioVaga());
+                }
             }
         }
     }
