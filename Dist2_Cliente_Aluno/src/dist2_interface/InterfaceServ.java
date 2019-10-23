@@ -19,7 +19,7 @@ public interface InterfaceServ extends Remote{
     public void criarVaga(String nomeEmpresa, String emailEmpresa, String areaVaga, String cargaHorariaVaga, float salarioVaga, InterfaceCli cliente);
     public void setCurriculo(String nome, String contato, String area, int CH, double salario);
     //public boolean inserirCurriculo(Curriculo curriculo) throws RemoteException;
-    public boolean inserirCurriculo(String a, String b, String e, int c, float d) throws RemoteException;
+    public boolean inserirCurriculo(String a, String b, String e, int c, float d, InterfaceCli cli) throws RemoteException;
     public ArrayList<Empresa> consultar(int filtro, String area, float salario) throws RemoteException ;
     
 

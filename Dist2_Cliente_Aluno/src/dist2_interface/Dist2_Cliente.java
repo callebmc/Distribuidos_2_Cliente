@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class Dist2_Cliente {
     public static InterfaceServ servidor;
     public static Curriculo curriculo = new Curriculo ();
+    public static InterfaceCli cli;
     /**
      * @param args the command line arguments
      */
@@ -46,6 +47,7 @@ public class Dist2_Cliente {
             System.out.println("\nDigite a opção desejada:");
             System.out.println("1 - Cadastre seu Currículo.");
             System.out.println("2 - Consulte as Vagas Disponíveis.");
+            System.out.println("3 - Notificações");
             
             opt = Integer.parseInt(leia.nextLine());
             
@@ -66,7 +68,7 @@ public class Dist2_Cliente {
                 cargaHoraria = Integer.parseInt(leia.nextLine());
                 System.out.println("Salario: ");
                 salario = Float.parseFloat(leia.nextLine());
-                servidor.inserirCurriculo(nome, contato, area, cargaHoraria, salario);
+                servidor.inserirCurriculo(nome, contato, area, cargaHoraria, salario, cliente);
             }
             
             if (opt == 2){
