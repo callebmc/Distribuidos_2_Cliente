@@ -5,13 +5,14 @@
  */
 package dist2_interface;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Calleb Malinoski
  */
-public class Empresa {
+public class Empresa implements Serializable {
 
     private String nomeEmpresa;
     private String emailEmpresa;

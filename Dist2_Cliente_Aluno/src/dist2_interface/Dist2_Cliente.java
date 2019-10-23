@@ -12,6 +12,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Scanner;
 import dist2_interface.Curriculo;
+import java.util.ArrayList;
 
 
 /**
@@ -29,48 +30,76 @@ public class Dist2_Cliente {
         InterfaceServ servidor = (InterfaceServ) reg.lookup("Hello World");
         CliImpl cliente = new CliImpl(servidor);
         //curriculo.setCurriculo("nome", "contato", "area", 12, 123);
-        servidor.inserirCurriculo("nome", "contato", "area", 12, 123);
+        //servidor.inserirCurriculo("nome", "contato", "area", 12, 123);
         //abreMenu();
-    }
-
-    public static void abreMenu() throws InterruptedException, RemoteException, NotBoundException {
-
-        System.out.println("Bem vindo ao Portal do Aluno de Estágio");
-
+        clrscr();
         Scanner leia = new Scanner(System.in);
-        int opt = 1;
-        while (opt != 5) {
-            System.out.println("Escolha uma opção abaixo");
-            System.out.println("1 - Cadastrar Curriculo");
+        int opt = 1, opt_sub = 0;
+        String areaFiltro;
+        float salarioFiltro;
+        ArrayList<Empresa> empresasFiltered = new ArrayList();
+
+        
+        
+        while (opt != 5){
+            System.out.println("Bem-vindo a Agência de Estágio - CLI Aluno ");
+            System.out.println("\nDigite a opção desejada:");
+            System.out.println("1 - Cadastre seu Currículo.");
+            System.out.println("2 - Consulte as Vagas Disponíveis.");
+            
             opt = Integer.parseInt(leia.nextLine());
+            
+            if (opt == 1) {
                 clrscr();
                 Scanner leia2 = new Scanner(System.in);
                 String nome, contato, area;
                 int cargaHoraria;
                 float salario;
-                System.out.println("Cadastro de Curriculo");
-                System.out.println("Insira seu nome: ");
+                System.out.println("****Cadastro de Currículo*****");
+                System.out.println("Insira o seu nome: ");
                 nome = leia.nextLine();
-                System.out.println("Digite E-mail, Celular ou WhatsApp: ");
+                System.out.println("E-mail: ");
                 contato = leia.nextLine();
-                System.out.println("Digite sua área: ");
+                System.out.println("Área de Interesse: ");
                 area = leia.nextLine();
-                System.out.println("Digite Carga Horária Disponível (somente numeros, em horas): ");
-                cargaHoraria = leia.nextInt();
-                System.out.println("Digite Pretenção de Salario (somente numeros, sem vírgulas ou pontos): ");
-                salario = leia.nextFloat();
-                
-                curriculo.setCurriculo(nome, contato, area, cargaHoraria, salario);
-                Thread.sleep(2222);
-                //servidor.inserirCurriculo2(nome, contato, area, cargaHoraria, salario);
-                
+                System.out.println("Carga Horaria Disponível, em número de horas: ");
+                cargaHoraria = Integer.parseInt(leia.nextLine());
+                System.out.println("Salario: ");
+                salario = Float.parseFloat(leia.nextLine());
+                servidor.inserirCurriculo(nome, contato, area, cargaHoraria, salario);
+            }
+            
             if (opt == 2){
                 clrscr();
-                System.out.println("Vagas disponíveis");
-            
-                    }
+                System.out.println("****Mostrando vagas disponíveis****");
+                System.out.println("Vagas disponíveis, escolha uma opção");
+                System.out.println("1 - Vagas filtradas");
+                System.out.println("2 - Todas as vagas");
+                System.out.println("Opção: ");
+                opt_sub = Integer.parseInt(leia.nextLine());
+                if (opt_sub == 2) {
+                    empresasFiltered = servidor.consultar(opt_sub, "", 0);
                 }
+                if (opt_sub == 1) {
+                    System.out.println("Área de interesse: ");
+                    areaFiltro = leia.nextLine();
+                    System.out.println("Salário mínimo: ");
+                    salarioFiltro = Float.parseFloat(leia.nextLine());
+                    empresasFiltered = servidor.consultar(opt_sub, areaFiltro, salarioFiltro);
+                }
+                for (Empresa empresa : empresasFiltered) {
+                    System.out.println("Vaga da empresa: " + empresa.getNomeEmpresa());
+                    System.out.println("Area: " + empresa.getAreaVaga());
+                    System.out.println("Salario: " + empresa.getSalarioVaga());
+                }
+                
+            }
+            
+        }
+        
     }
+
+   
 
     public static void cadastroMenu() {
         clrscr();

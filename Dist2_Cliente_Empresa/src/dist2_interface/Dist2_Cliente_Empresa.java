@@ -37,11 +37,13 @@ public class Dist2_Cliente_Empresa {
         String areaFiltro;
         float salarioFiltro;
         ArrayList<Empresa> empresasFiltered = new ArrayList();
+        ArrayList<Curriculo> curriculoFiltered = new ArrayList();
 
         while (opt != 5) {
             System.out.println("Escolha uma opção abaixo");
             System.out.println("1 - Cadastrar Vaga");
-            System.out.println("1 - Consultar Vagas");
+            System.out.println("2 - Consultar Vagas");
+            System.out.println("3 - Consultar Currículos");
             opt = Integer.parseInt(leia.nextLine());
 
             if (opt == 1) {
@@ -84,6 +86,33 @@ public class Dist2_Cliente_Empresa {
                     System.out.println("Area: " + empresa.getAreaVaga());
                     System.out.println("Salario: " + empresa.getSalarioVaga());
                 }
+            }
+            
+            if (opt == 3){
+                clrscr();
+                System.out.println("********* Currículos Cadastrados ***********");
+                System.out.println("1 - Filtrar por área de interesse");
+                System.out.println("2 - Todas as vagas");
+                System.out.println("Opção: ");
+                opt_sub = Integer.parseInt(leia.nextLine());
+                if (opt_sub == 2) {
+               
+                    curriculoFiltered = servidor.consultarCurriculos(" ");
+                }
+                
+                else {
+                    System.out.println("Área de interesse: ");
+                    String area_curriculo = leia.nextLine();
+                    curriculoFiltered = servidor.consultarCurriculos(area_curriculo);
+                }
+                
+                for (Curriculo curriculo : curriculoFiltered) {
+                    System.out.println("Vaga da empresa: " + curriculo.getNome());
+                    System.out.println("Area: " + curriculo.getArea());
+                    System.out.println("Disponibilidade: " + curriculo.getCH() + " horas.");
+                    System.out.println("Salario pretendido: " + curriculo.getSalario());
+                }
+                
             }
         }
     }

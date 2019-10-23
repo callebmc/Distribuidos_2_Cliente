@@ -7,6 +7,7 @@ package dist2_interface;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +20,7 @@ public interface InterfaceServ extends Remote{
     public void setCurriculo(String nome, String contato, String area, int CH, double salario);
     //public boolean inserirCurriculo(Curriculo curriculo) throws RemoteException;
     public boolean inserirCurriculo(String a, String b, String e, int c, float d) throws RemoteException;
+    public ArrayList<Empresa> consultar(int filtro, String area, float salario) throws RemoteException ;
     
 
 }
