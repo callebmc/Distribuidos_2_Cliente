@@ -15,4 +15,5 @@ import java.rmi.RemoteException;
 public interface InterfaceServ extends Remote{
     void chamar(String mensagem, InterfaceCli interfaceCli) throws RemoteException;
     public boolean inserirAluno(Aluno a) throws RemoteException;    
+    public void criarVaga(String nomeEmpresa, String emailEmpresa, String areaVaga, String cargaHorariaVaga, float salarioVaga, InterfaceCli cliente) throws RemoteException;
 }
