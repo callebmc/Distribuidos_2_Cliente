@@ -5,8 +5,10 @@
         <group>
             <file>file:/D:/Repo/Distribuidos_2_Cliente/Dist2_Cliente_Aluno/src/dist2_interface/InterfaceCli.java</file>
             <file>file:/D:/Repo/Distribuidos_2_Cliente/Dist2_Cliente_Aluno/src/dist2_interface/CliImpl.java</file>
+            <file>file:/D:/Repo/Distribuidos_2_Cliente/Dist2_Cliente_Aluno/src/dist2_interface/Empresa.java</file>
             <file>file:/D:/Repo/Distribuidos_2_Cliente/Dist2_Cliente_Aluno/src/dist2_interface/Dist2_Cliente.java</file>
             <file>file:/D:/Repo/Distribuidos_2_Cliente/Dist2_Cliente_Aluno/src/dist2_interface/InterfaceServ.java</file>
+            <file>file:/D:/Repo/Distribuidos_2_Cliente/Dist2_Cliente_Aluno/src/dist2_interface/Curriculo.java</file>
         </group>
     </open-files>
 </project-private>
