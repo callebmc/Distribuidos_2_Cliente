@@ -6,9 +6,9 @@ Professora: Ana Cristina Barreiras Kochem Vendramin
 
 Ano: 2019/2
 
-### Protocolo de Consenso, Comunicação em Grupo e Segurança.
+### Arquitetura Cliente-Servidor, Modelo Publisher/Subscriber (Eventos e Notificações), Java RMI
 
-Phase King
+Agência de Empregos
 
 ### Autores
 + Ana Yanaze
