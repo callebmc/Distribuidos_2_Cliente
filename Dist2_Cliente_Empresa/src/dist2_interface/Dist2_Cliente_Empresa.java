@@ -153,7 +153,7 @@ public class Dist2_Cliente_Empresa {
                 System.out.println("Digite a área de interesse de curriculos: ");
                 areaVaga = leia.nextLine();
                 System.out.println("Registrando Interesse em qualquer curriculo da área " + areaVaga );
-                servidor.registraInteresseVagas(cliente, areaVaga);
+                servidor.registraInteresseCurriculos(cliente, areaVaga);
                 System.out.println("Registro de interesse feito com sucesso");
             }
 

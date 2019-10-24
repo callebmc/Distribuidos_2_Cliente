@@ -127,7 +127,7 @@ public class Dist2_Cliente {
                 System.out.println("Digite a área de interesse: ");
                 area = leia.nextLine();
                 System.out.println("Registrando Interesse em qualquer vaga da área " + area );
-                servidor.registraInteresseVagas(cli, area);
+                servidor.registraInteresseVagas(cliente, area);
                 System.out.println("Registro de interesse feito com sucesso");
             }
 

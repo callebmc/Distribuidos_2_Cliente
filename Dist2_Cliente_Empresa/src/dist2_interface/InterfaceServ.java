@@ -36,6 +36,11 @@ public interface InterfaceServ extends Remote{
     */
     public void registraInteresseVagas(InterfaceCli cli, String areaInteresse) throws RemoteException;    
     
+    /*
+    Método que envia a notificação de nova vaga
+    */
+    public void notificaInteresseVaga(String areaInteresse) throws RemoteException;
+    
     /********************************/
     /********************************/
     /********************************/
