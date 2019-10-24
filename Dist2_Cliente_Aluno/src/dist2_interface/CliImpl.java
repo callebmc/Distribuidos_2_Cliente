@@ -30,7 +30,7 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
         System.out.println(titulo);
         System.out.println(msg);
     }
-    
+
     @Override
     public void notificarCurriculos(String msg, String titulo) throws RemoteException {
         System.out.println(titulo);

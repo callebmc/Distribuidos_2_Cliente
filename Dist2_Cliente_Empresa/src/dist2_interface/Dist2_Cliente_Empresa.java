@@ -35,7 +35,7 @@ public class Dist2_Cliente_Empresa {
         float salario;
 
         Scanner leia = new Scanner(System.in);
-        int opt = 1, opt_sub = 0, cont=1;
+        int opt = 1, opt_sub = 0, cont = 1;
         String areaFiltro;
         float salarioFiltro;
         ArrayList<Empresa> empresasFiltered = new ArrayList();
@@ -53,7 +53,6 @@ public class Dist2_Cliente_Empresa {
             //CADASTRO DE VAGAS
             if (opt == 1) {
                 System.out.println("");
-                Scanner leia2 = new Scanner(System.in);
                 System.out.println("Cadastro de Vaga");
                 System.out.println("Insira o nome da empresa: ");
                 nomeEmpresa = leia.nextLine();
@@ -67,7 +66,7 @@ public class Dist2_Cliente_Empresa {
                 salario = Float.parseFloat(leia.nextLine());
                 servidor.criarVaga(nomeEmpresa, emailEmpresa, areaVaga, cargaHorariaVaga, salario, cliente);
             }
-            
+
             //CONSULTAR VAGAS
             if (opt == 2) {
                 System.out.println("");
@@ -146,17 +145,16 @@ public class Dist2_Cliente_Empresa {
                 salario = Float.parseFloat(leia.nextLine());
                 servidor.atualizarVaga(opt_sub - 1, nomeEmpresa, emailEmpresa, areaVaga, cargaHorariaVaga, salario, cliente);
             }
-            
+
             //REGISTRA INTERESSE
-            if(opt == 5){
+            if (opt == 5) {
                 System.out.println("");
                 System.out.println("Digite a área de interesse de curriculos: ");
                 areaVaga = leia.nextLine();
-                System.out.println("Registrando Interesse em qualquer curriculo da área " + areaVaga );
+                System.out.println("Registrando Interesse em qualquer curriculo da área " + areaVaga);
                 servidor.registraInteresseCurriculos(cliente, areaVaga);
                 System.out.println("Registro de interesse feito com sucesso");
             }
-
             cont = 1;
         }
     }

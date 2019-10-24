@@ -13,7 +13,9 @@ import java.rmi.RemoteException;
  * @author a1609556
  */
 public interface InterfaceCli extends Remote {
-    void echo(String mensagem) throws RemoteException;   
+    void echo(String mensagem) throws RemoteException;
+    
+    //MÉTODOS DO CLIENTE DE NOTIFICAÇÃO
     public void notificarCurriculos(String msg, String titulo) throws RemoteException;
     public void notificarVagas(String msg, String titulo) throws RemoteException;
 }

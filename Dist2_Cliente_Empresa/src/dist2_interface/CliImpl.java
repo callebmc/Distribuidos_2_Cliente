@@ -26,18 +26,12 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
 
     }
 
-//    @Override
-//    public void notificarVaga(Empresa vaga) throws RemoteException {
-//        System.out.println("Nova vaga disponível. Empresa: " + vaga.getNomeEmpresa());
-//        System.out.println("Area de Interesse: " + vaga.getAreaVaga());
-//    }
-
     @Override
     public void notificarCurriculos(String msg, String titulo) throws RemoteException {
         System.out.println(titulo);
         System.out.println(msg);
     }
-    
+
     @Override
     public void notificarVagas(String msg, String titulo) throws RemoteException {
         System.out.println(titulo);

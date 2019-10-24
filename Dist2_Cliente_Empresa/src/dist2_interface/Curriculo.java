@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package dist2_interface;
+
 import java.io.Serializable;
 
 /**
@@ -11,46 +12,46 @@ import java.io.Serializable;
  * @author ana
  */
 public class Curriculo implements Serializable {
-    
-    
+
     /*um currículo. */
-    
     private String nome;
     private String contato;
     private String area;
     private int carga_horaria;
     private float salario_pretendido;
-    
+
+    //CONSTRUTOR
     public Curriculo(String nome, String contato, String area, int CH, float salario) {
-    this.nome = nome;
+        this.nome = nome;
         this.contato = contato;
         this.area = area;
         this.carga_horaria = CH;
         this.salario_pretendido = salario;
     }
-    
+
     public String getNome() {
         return nome;
     }
-    
+
     public String getContato() {
         return contato;
     }
-    
-    public String getArea(){
+
+    public String getArea() {
         return area;
-      
+
     }
-    
-    public int getCH(){
+
+    public int getCH() {
         return carga_horaria;
     }
-    
-    public double getSalario(){
+
+    public double getSalario() {
         return salario_pretendido;
     }
-    
-    public void setCurriculo(String nome, String contato, String area, int CH, float salario){
+
+    //MÉTODO NA CLASSE PRA ATUALIZAR OS DADOS
+    public void setCurriculo(String nome, String contato, String area, int CH, float salario) {
         this.nome = nome;
         this.contato = contato;
         this.area = area;

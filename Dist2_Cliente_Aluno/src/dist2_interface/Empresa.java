@@ -21,6 +21,7 @@ public class Empresa implements Serializable {
     private float salarioVaga;
     public InterfaceCli ref;
 
+    //CONSTRUTOR DE VAGAS
     public Empresa(String nomeEmpresa, String emailEmpresa, String areaVaga, String cargaHorarioVaga, float salarioVaga, InterfaceCli ref) {
         this.nomeEmpresa = nomeEmpresa;
         this.emailEmpresa = emailEmpresa;
@@ -49,24 +50,24 @@ public class Empresa implements Serializable {
     public float getSalarioVaga() {
         return salarioVaga;
     }
-    
-    public void setNomeEmpresa(String n){
+
+    public void setNomeEmpresa(String n) {
         this.nomeEmpresa = n;
     }
-    
-    public void setEmailEmpresa(String e){
+
+    public void setEmailEmpresa(String e) {
         this.emailEmpresa = e;
     }
-    
-    public void setAreaVaga(String a){
+
+    public void setAreaVaga(String a) {
         this.areaVaga = a;
     }
-    
-    public void setCargaHoraria(String c){
+
+    public void setCargaHoraria(String c) {
         this.cargaHorariaVaga = c;
     }
-    
-    public void setSalarioVaga(float s){
+
+    public void setSalarioVaga(float s) {
         this.salarioVaga = s;
     }
 }
